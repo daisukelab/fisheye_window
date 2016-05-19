@@ -1,3 +1,9 @@
+## Fisheye Window snippet
+# --> https://github.com/daisukelab/fisheye_window
+#
+# Thanks to:
+# - http://www.waseda.jp/sem-ikenaga/content/research%20files/mori2nd.pdf
+
 import numpy as np
 import cv2
 import sys
@@ -18,11 +24,12 @@ Hit ESC to exit.
 '''
 
 class FishEyeWindow(object):
-    """Fisheye Window Class
-    Get 
-    
-    Args:
-        nx, ny (int): Number of inner corners of the chessboard pattern, in x and y axes.
+    """Fisheye Window class
+    You can get image out of your fisheye image for desired view.
+    1. Create instance by feeding image sizes.
+    2. Call buildMap to set the view you want.
+       This calculates the map for the 'remap.'
+    3. Call getImage that simply remaps.
     """
     def __init__(
             self,
